@@ -35,3 +35,8 @@ func _process(delta):
 		$AnimatedSprite.animation = "up"
 		$AnimatedSprite.flip_v = velocity.y > 0
 
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+
