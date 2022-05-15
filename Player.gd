@@ -35,8 +35,12 @@ func _process(delta):
 		$AnimatedSprite.animation = "up"
 		$AnimatedSprite.flip_v = velocity.y > 0
 
-func start(pos):
-	position = pos
+func start(x, y):
+	position.x = x
+	position.y = y
 	show()
 	$CollisionShape2D.disabled = false
 
+func _on_Player_body_entered(_body):
+	hide() # Player disappears after being hit.
+	$GameOver.play()
